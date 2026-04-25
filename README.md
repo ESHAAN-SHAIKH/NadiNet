@@ -1,6 +1,19 @@
 # NadiNet — NGO Volunteer Coordination Platform
 
-A full-stack, data-driven volunteer coordination platform for NGOs. NadiNet ingests community need signals from multiple channels, triangulates them into corroborated needs, scores and decays them by trust, matches volunteers algorithmically, and coordinates deployment via WhatsApp — all powered by Google Gemini AI.
+## Project Summary
+
+NadiNet is a comprehensive, full-stack data-driven platform designed specifically for Non-Governmental Organizations (NGOs) to manage and coordinate field operations during crises or daily community outreach. 
+
+Operating in fast-paced environments, NGOs often receive chaotic, overlapping, and unstructured reports (signals) across multiple channels like WhatsApp, apps, and handwritten notes. NadiNet solves this by serving as an intelligent central nervous system: it ingests these raw signals and uses Artificial Intelligence to categorize, verify, and prioritize them automatically. 
+
+Instead of coordinators manually trying to figure out which needs are most urgent and who is best suited to help, NadiNet relies on sophisticated algorithmic models:
+* **AI-Powered Ingestion:** It uses Google Gemini AI and Cloud Vision OCR to read text messages, images, and CSVs, automatically extracting the need category, urgency, and estimated affected population.
+* **Smart Triangulation & Verification:** As multiple reports ("signals") come in from different reporters regarding the same location and issue, NadiNet automatically groups them into a single corroborated "Need," increasing its confidence score.
+* **Dynamic Priority Scoring & Trust Decay:** The platform calculates a dynamic priority score for every need based on urgency, affected population, and corroboration. Over time, unresolved needs decay in priority (based on the half-life of the specific category), factoring in the historic trust score of the reporters who escalated the issue.
+* **Algorithmic Volunteer Matching:** When a coordinator decides to dispatch help, NadiNet uses a 3-pass algorithm to find the absolute best volunteers based on skill-match, geographic proximity (using PostGIS), and volunteer "Kinship" (past successful co-deployments with other volunteers).
+* **Automated WhatsApp Dispatch:** Once matched, tasks are dispatched seamlessly via the Twilio WhatsApp API. Volunteers receive their details directly in WhatsApp, can accept tasks, and submit debriefs and resolutions right from their chat—no external app required!
+
+Built on a modern stack of FastAPI (Python), PostgreSQL + PostGIS, and a Next.js (React) frontend dashboard, NadiNet eliminates blind spots, speeds up response times, and ensures NGO resources are deployed exactly where they are needed most.
 
 ---
 
